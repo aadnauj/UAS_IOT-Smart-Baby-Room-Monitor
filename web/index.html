@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Baby Room Monitor</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- ============== LOGIN ============== -->
+  <div id="loginForm" class="page login-page">
+    <div class="login-shell">
+
+      <section class="login-left">
+        <div class="login-brand">
+          <span class="logo-mark">👶</span>
+          <span class="logo-text">Baby Room Monitor</span>
+        </div>
+
+        <h1 class="login-heading">Welcome</h1>
+        <p class="login-sub">
+          Silakan login untuk mengakses panel monitoring.
+        </p>
+
+        <form class="login-form" onsubmit="return false;">
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="Email address"/>
+          <label for="password">Password</label>
+          <input type="password" id="password" placeholder="Password" />
+          <button id="loginBtn" type="button">Login</button>
+        </form>
+      </section>
+
+      <section class="login-right">
+        <img src="assets/baby1.jpg" alt="baby room background" class="bg-plant">
+        <div class="visual-layer">
+          <div class="visual-card">
+            <div class="visual-logo">👶</div>
+            <p class="visual-title">Baby Room</p>
+            <p class="visual-caption">
+              Monitoring suhu, kelembapan, dan kondisi kamar bayi.
+            </p>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- ============== DASHBOARD ============== -->
+  <div id="dashboard" class="page page-dashboard" style="display: none;">
+    <header class="dash-header">
+      <div class="dash-title">
+        <h1>Baby Room Monitor</h1>
+        <h2>Monitoring Suhu, Kelembapan, &amp; Kondisi Kamar Bayi</h2>
+      </div>
+      <button id="logoutBtn" class="btn-ghost">Logout</button>
+    </header>
+  <main class="dash-main">
+  <section class="dash-hero">
+    <img src="assets/baby1.jpg" alt="Baby room background" class="hero-bg">
+
+    <div class="hero-overlay">
+      <div class="metric-row">
+        <!-- KIRI: SUHU -->
+        <div class="metric-card metric-toggle" data-metric="temperature">
+          <div class="metric-icon">🌡️</div>
+          <div class="metric-title">Suhu Ruangan</div>
+          <div class="metric-value">
+            <span id="temperatureValue">0</span><span class="metric-unit">°C</span>
+          </div>
+          <div class="metric-status" id="temperatureStatus">Normal</div>
+        </div>
+
+        <!-- TENGAH: KELEMBAPAN -->
+        <div class="metric-card metric-toggle" data-metric="humidity">
+          <div class="metric-icon">💧</div>
+          <div class="metric-title">Kelembapan Udara</div>
+          <div class="metric-value">
+            <span id="humidityValue">0</span><span class="metric-unit">%</span>
+          </div>
+          <div class="metric-status" id="humidityStatus">Normal</div>
+        </div>
+
+        <!-- KANAN: STATUS RUANGAN -->
+        <div class="metric-card metric-toggle" data-metric="status">
+          <div class="metric-icon">🏠</div>
+          <div class="metric-title">Status Ruangan</div>
+          <div class="metric-value" id="statusText">NYAMAN</div>
+          <div class="metric-status" id="statusDesc">Kondisi Aman</div>
+        </div>
+
+        <!-- LINGKARAN BESAR YANG PINDAH-PINDAH -->
+        <div class="hero-circle" id="heroCircle">
+          <div class="hero-circle-inner">
+            <div class="circle-icon">🌡️</div>
+            <div class="circle-label" id="heroLabel">Suhu Ruangan</div>
+            <div class="circle-value" id="heroValue">
+              0<span class="metric-unit">°C</span>
+            </div>
+            <div class="circle-chip" id="heroStatus">Normal</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <!-- ROW KARTU DI BAWAH-->
+    <section class="dash-grid">
+      <article class="dash-card">
+        <h3>Suhu &amp; Kenyamanan</h3>
+        <p>
+          Suhu ideal untuk bayi adalah 18-30°C.
+        </p>
+      </article>
+
+      <article class="dash-card">
+        <h3>Kelembapan Udara</h3>
+        <p>
+          Kelembapan optimal untuk kenyamanan bayi adalah 40-60%. <br>Udara yang
+          terlalu kering atau lembap dapat mengganggu pernapasan bayi.
+        </p>
+      </article>
+
+      <article class="dash-card">
+        <h3>Status &amp; Peringatan</h3>
+        <p>
+          LED akan aktif jika kondisi tidak aman.<br> Hijau = Nyaman,
+          Kuning = Waspada, Merah = Bahaya.
+        </p>
+      </article>
+    </section>
+  </main>
+
+
+    <footer class="dash-footer">
+      <p>
+        Baby Room Monitor &mdash; Dashboard monitoring berbasis
+        Firebase Realtime Database.
+      </p>
+    </footer>
+  </div>
+    <!-- ============== JS (Firebase + Logic) ============== -->
+    <script type="module" src="script.js"></script>
+  </body>
+</html>
